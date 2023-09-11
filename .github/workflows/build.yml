@@ -46,10 +46,12 @@ jobs:
       - name: Run a multi-line script
         env: 
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          EMAIL: ${{ secrets.EMAIL }}
+          USER: ${{ secrets.USER }}
         run: |
           echo 'test new file'>test.txt
-          git config --local user.email "${{ secrets.EMAIL }}"
-          git config --local user.name "${{ secrets.USER }}"
+          git config --local user.email "${EMAIL}"
+          git config --local user.name "${USER}"
           git add .
           git commit -m "Add new file"
           git push
