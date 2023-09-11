@@ -48,8 +48,8 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           echo 'test new file'>test.txt
-          git config --local user.email "z@z.com"
-          git config --local user.name "dev-bz"
+          git config --local user.email "${{ secrets.EMAIL }}"
+          git config --local user.name "${{ secrets.USER }}"
           git add .
           git commit -m "Add new file"
           git push
